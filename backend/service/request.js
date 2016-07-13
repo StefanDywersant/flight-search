@@ -3,15 +3,21 @@
 
 const http = require('http'),
 	q = require('q'),
-	logger = require('./logger');
+	querystring = require('querystring');
+
+
+const logger = require('./logger');
 
 
 module.exports = function(config) {
-	const get = function(path) {
+	const get = function(path, query) {
 		const deferred = q.defer(),
 			hostname = config.hostname,
 			port = config.port,
 			startTime = Date.now();
+
+		if (query)
+			path += '?' + querystring.stringify(query);
 
 		logger.silly('[requests:get] Request http://' + hostname + path);
 

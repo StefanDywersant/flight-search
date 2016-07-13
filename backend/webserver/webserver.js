@@ -9,7 +9,8 @@ const http = require('http'),
 
 
 const logger = require('../service/logger'),
-	airlinesHandler = require('./handler/airlines');
+	airlinesHandler = require('./handler/airlines'),
+	airportsHandler = require('./handler/airports');
 
 
 /**
@@ -37,6 +38,7 @@ let _instance;
 
 	// attach handlers
 	airlinesHandler(app);
+	airportsHandler(app);
 
 	// create configured webserver instance
 	_instance = http.createServer(app);
