@@ -4,7 +4,7 @@
 const http = require('http'),
 	q = require('q'),
 	express = require('express'),
-	config = require('config'),
+	config = require('config').webserver,
 	winstonRequestLogger = require('winston-request-logger');
 
 
@@ -49,8 +49,8 @@ let _instance;
  * @returns {Promise.boolean}
  */
 const init = function() {
-	_instance.listen(config.webserver.port, config.webserver.host);
-	logger.info('[webserver:init] Webserver listening on %s:%d', config.webserver.host, config.webserver.port);
+	_instance.listen(config.port, config.host);
+	logger.info('[webserver:init] Webserver listening on %s:%d', config.host, config.port);
 	return q(true);
 };
 

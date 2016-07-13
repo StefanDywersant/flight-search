@@ -1,3 +1,8 @@
+flightapi:
+  hostname: 'node.locomote.com'
+  port: 80
+  base_path: '/code-task'
+
 logger:
   level: silly
 
