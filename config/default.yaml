@@ -1,3 +1,6 @@
+cluster:
+  childs: 'auto'
+
 flightapi:
   hostname: 'node.locomote.com'
   port: 80
